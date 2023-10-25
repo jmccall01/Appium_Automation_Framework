@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.example.pageObjects.Android.FormPage;
+import org.example.pageObjects.Android.ProductCatalogue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -91,10 +92,16 @@ public class journey1 extends Basis{
 
     @Test
     public void checkoutFramework(){
+        //First page - form page
         FormPage formPage = new FormPage(driver);
         formPage.setNameField("Josh");
         formPage.setGender("Male");
         formPage.setCountrySelection("Argentina");
         formPage.submitForm();
+        //PLP
+        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+        productCatalogue.addItemToCartByIndex(0);
+        productCatalogue.addItemToCartByIndex(1);
+
     }
 }
