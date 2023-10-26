@@ -3,6 +3,7 @@ package org.example;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import org.example.pageObjects.Android.CartPage;
 import org.example.pageObjects.Android.FormPage;
 import org.example.pageObjects.Android.ProductCatalogue;
 import org.openqa.selenium.By;
@@ -21,6 +22,11 @@ import java.util.Set;
 import static java.time.Duration.*;
 
 public class journey1 extends Basis{
+    /*
+     * Here are the E2E journey tests as I was learning Appium
+     * The final piece using an actual automation framework is at the bottom of the page - called 'checkoutFramework'
+
+
     @Test
     public void FillForm() {
         driver.findElement(By.id("android:id/text1")).click();
@@ -87,21 +93,26 @@ public class journey1 extends Basis{
         driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
         driver.context("NATIVE_APP");
-        */
-    }
+
+     */
 
     @Test
     public void checkoutFramework(){
         //First page - form page
-        FormPage formPage = new FormPage(driver);
         formPage.setNameField("Josh");
         formPage.setGender("Male");
         formPage.setCountrySelection("Argentina");
-        formPage.submitForm();
-        //PLP
-        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+        //driver from submitForm return value
+        ProductCatalogue productCatalogue = formPage.submitForm();
+        //product catalogue page
         productCatalogue.addItemToCartByIndex(0);
-        productCatalogue.addItemToCartByIndex(1);
-
+        productCatalogue.addItemToCartByIndex(0);
+        //cartPage driver comes from return value of goToCartPage()
+        CartPage cartPage = productCatalogue.goToCartPage();
+        //cartPage
+        double totalSum = cartPage.getProductSum();
+        double totalPrice = cartPage.getTotalPrice();
+        Assert.assertEquals(totalSum, totalPrice);
+        cartPage.checkout();
     }
 }

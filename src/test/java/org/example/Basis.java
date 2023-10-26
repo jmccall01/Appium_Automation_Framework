@@ -3,6 +3,7 @@ package org.example;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import org.example.pageObjects.Android.FormPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -17,6 +18,7 @@ import static java.time.Duration.*;
 public class Basis {
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
+    public FormPage formPage;
     @BeforeClass
     public void ConfigureAppium() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options();
@@ -25,6 +27,7 @@ public class Basis {
         options.setApp("C:\\Users\\joshm\\IdeaProjects\\automation_framework\\src\\resources\\General-Store.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
         driver.manage().timeouts().implicitlyWait(ofSeconds(10));
+        formPage = new FormPage(driver);
     }
 
     public Double getFormattedAmount(String amount){

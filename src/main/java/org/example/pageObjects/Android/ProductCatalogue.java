@@ -22,8 +22,15 @@ public class ProductCatalogue extends AndroidGestures {
     @AndroidFindBy(xpath="//android.widget.TextView[@text='ADD TO CART']")
     private List<WebElement> addToCartCTA;
 
+    @AndroidFindBy(id="com.androidsample.generalstore:id/appbar_btn_cart")
+    private WebElement cart;
+
     public void addItemToCartByIndex(int i){
         addToCartCTA.get(i).click();
+    }
 
+    public CartPage goToCartPage(){
+        cart.click();
+        return new CartPage(driver);
     }
 }

@@ -54,7 +54,8 @@ public class FormPage extends AndroidGestures {
         driver.findElement(By.xpath("//android.widget.TextView[@text=\""+country+"\"]")).click();
     }
 
-    public void submitForm(){
+    public ProductCatalogue submitForm(){
         shopCTA.click();
+        return new ProductCatalogue(driver);
     }
 }
