@@ -7,9 +7,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-public class AndroidGestures {
+public class AndroidActions extends AppiumUtils{
     AndroidDriver driver;
-    public AndroidGestures(AndroidDriver driver){
+    public AndroidActions(AndroidDriver driver){
+        super(driver);
         this.driver = driver;
 
     }

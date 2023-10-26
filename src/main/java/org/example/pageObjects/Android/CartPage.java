@@ -3,13 +3,12 @@ package org.example.pageObjects.Android;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.example.utils.AndroidGestures;
+import org.example.utils.AndroidActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
-import org.testng.Assert;
 
-public class CartPage extends AndroidGestures {
+public class CartPage extends AndroidActions {
     AndroidDriver driver;
     public CartPage(AndroidDriver driver){
         super(driver);
@@ -45,14 +44,14 @@ public class CartPage extends AndroidGestures {
     public double getProductSum() {
         double totalSum = 0;
         for (int i = 0; i < productPrices.size(); i++) {
-            Double price = Double.parseDouble(productPrices.get(i).getText().substring(1));
+            Double price = getFormattedAmount(productPrices.get(i).getText());
             totalSum = totalSum + price;
         }
         return totalSum;
     }
 
     public double getTotalPrice(){
-        double totalPriceShown = Double.parseDouble(totalPrice.getText().substring(1));
+        double totalPriceShown = getFormattedAmount(totalPrice.getText());
         return totalPriceShown;
     }
 

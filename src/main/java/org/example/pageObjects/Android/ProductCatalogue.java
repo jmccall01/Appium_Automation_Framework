@@ -1,17 +1,15 @@
 package org.example.pageObjects.Android;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.example.utils.AndroidGestures;
-import org.openqa.selenium.By;
+import org.example.utils.AndroidActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class ProductCatalogue extends AndroidGestures {
+public class ProductCatalogue extends AndroidActions {
     AndroidDriver driver;
     public ProductCatalogue(AndroidDriver driver){
         super(driver);

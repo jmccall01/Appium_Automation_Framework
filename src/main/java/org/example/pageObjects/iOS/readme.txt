@@ -1,0 +1,1 @@
+Currently using a windows device so iOS automation is not possible

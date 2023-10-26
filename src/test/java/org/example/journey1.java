@@ -109,7 +109,7 @@ public class journey1 extends Basis{
         productCatalogue.addItemToCartByIndex(0);
         //cartPage driver comes from return value of goToCartPage()
         CartPage cartPage = productCatalogue.goToCartPage();
-        //cartPage
+        //cart
         double totalSum = cartPage.getProductSum();
         double totalPrice = cartPage.getTotalPrice();
         Assert.assertEquals(totalSum, totalPrice);
