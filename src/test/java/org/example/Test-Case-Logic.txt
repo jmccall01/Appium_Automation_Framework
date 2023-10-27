@@ -1,0 +1,21 @@
+Every new class that is made will invoke the app, so you will
+be starting from the homepage with app data cleared. This is good
+for tests, like functional tests, that require fresh data.
+
+If you do multiple of '@Test' in the same class then the app will
+continue from the point where the previous test ended.
+
+By using '@BeforeMethod' you can write code that runs before every test
+Example:
+
+@BeforeMethod
+public void preSetup(){
+    //set screen
+    Activity activity = new Activity(*package-name*, *activity-name*);
+    /*
+    To find these, go to the required screen in the emulator then go to
+    terminal and type:
+    dumpsys window displays | grep -E ‘mCurrentFocus’
+    */
+
+}

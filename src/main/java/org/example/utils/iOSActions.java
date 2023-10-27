@@ -7,6 +7,7 @@ public class iOSActions extends AppiumUtils {
     public iOSActions(IOSDriver driver) {
         super(driver);
         this.driver = driver;
+
     }
     //Currently using a windows device so iOS automation is not possible
     // @iOSXCUITFindBy(attribute = "value") to replace the @AndroidFindBy(attribute = "value")
