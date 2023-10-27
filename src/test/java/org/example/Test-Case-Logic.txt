@@ -17,7 +17,7 @@ public void preSetup(){
     /*
     To find these, go to the required screen in the emulator then go to
     terminal and type:
-    dumpsys window displays | grep -E ‘mCurrentFocus’
+    adb shell dumpsys window | findstr mCurrentFocus
     */
 }
 

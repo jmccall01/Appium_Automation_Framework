@@ -1,5 +1,6 @@
 package org.example.pageObjects.Android;
 
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -56,5 +57,10 @@ public class FormPage extends AndroidActions {
     public ProductCatalogue submitForm(){
         shopCTA.click();
         return new ProductCatalogue(driver);
+    }
+
+    public void setActivity(){
+        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.SplashActivity");
+        driver.startActivity(activity);
     }
 }

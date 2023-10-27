@@ -1,25 +1,12 @@
 package org.example;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.android.Activity;
 import org.example.pageObjects.Android.CartPage;
-import org.example.pageObjects.Android.FormPage;
 import org.example.pageObjects.Android.ProductCatalogue;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.text.Normalizer;
-import java.time.Duration;
-import java.util.List;
-import java.util.Set;
-
-import static java.time.Duration.*;
 
 public class journey1 extends Basis{
     /*
@@ -96,12 +83,12 @@ public class journey1 extends Basis{
 
      */
 
-    @Test
-    public void checkoutFramework(){
+    @Test (dataProvider = "getData")
+    public void checkoutFramework(String name, String gender, String country){
         //First page - form page
-        formPage.setNameField("Josh");
-        formPage.setGender("Male");
-        formPage.setCountrySelection("Argentina");
+        formPage.setNameField(name);
+        formPage.setGender(gender);
+        formPage.setCountrySelection(country);
         //driver from submitForm return value
         ProductCatalogue productCatalogue = formPage.submitForm();
         //product catalogue page
@@ -114,5 +101,16 @@ public class journey1 extends Basis{
         double totalPrice = cartPage.getTotalPrice();
         Assert.assertEquals(totalSum, totalPrice);
         cartPage.checkout();
+    }
+    @BeforeMethod
+    public void preSetup(){
+        formPage.setActivity();
+    }
+    //If we want to use different data instead of 'Josh', 'Male', 'Argentina' this can be achieved by:
+    @DataProvider
+    public Object[][] getData(){
+        //Object so it accepts all data types
+        return new Object[][] {{"Josh","Male","Argentina"},{"Catrin","female","Belgium"}};
+
     }
 }
