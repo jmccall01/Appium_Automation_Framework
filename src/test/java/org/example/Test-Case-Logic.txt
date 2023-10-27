@@ -1,3 +1,5 @@
+1. @BeforeClass:
+
 Every new class that is made will invoke the app, so you will
 be starting from the homepage with app data cleared. This is good
 for tests, like functional tests, that require fresh data.
@@ -17,5 +19,9 @@ public void preSetup(){
     terminal and type:
     dumpsys window displays | grep -E ‘mCurrentFocus’
     */
-
 }
+
+2. Running Test Cases Together
+
+Sequentially:
+Make a
