@@ -1,21 +1,19 @@
-package org.example;
+package org.generalstore;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-import org.example.pageObjects.Android.FormPage;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.generalstore.pageObjects.Android.FormPage;
+import org.generalstore.utils.AppiumUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
 
 import static java.time.Duration.*;
 
-public class Basis {
+public class Basis extends AppiumUtils {
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
     public FormPage formPage;

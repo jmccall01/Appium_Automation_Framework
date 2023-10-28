@@ -24,4 +24,10 @@ public void preSetup(){
 2. Running Test Cases Together
 
 Sequentially:
-Make a
+Make a xml file and structure in the way testing.xml in this project is structured
+
+3. Data:
+Can be added via @DataProvider as in journey1 or can be added using json
+Parse Json file -> Json String (using Commons-io)
+Json string -> Hash Map (using Jackson)
+HashMap -> Testcase (using TestNG)

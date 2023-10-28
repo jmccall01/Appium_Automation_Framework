@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.generalstore.utils;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
@@ -10,9 +10,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 public class AndroidActions extends AppiumUtils{
     AndroidDriver driver;
     public AndroidActions(AndroidDriver driver){
-        super(driver);
         this.driver = driver;
-
     }
 
 

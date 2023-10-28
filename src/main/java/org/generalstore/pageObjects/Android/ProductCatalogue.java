@@ -1,9 +1,9 @@
-package org.example.pageObjects.Android;
+package org.generalstore.pageObjects.Android;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.example.utils.AndroidActions;
+import org.generalstore.utils.AndroidActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 

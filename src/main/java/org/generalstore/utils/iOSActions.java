@@ -1,11 +1,11 @@
-package org.example.utils;
+package org.generalstore.utils;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class iOSActions extends AppiumUtils {
+    private final IOSDriver driver;
+
     public iOSActions(IOSDriver driver) {
-        super(driver);
         this.driver = driver;
 
     }

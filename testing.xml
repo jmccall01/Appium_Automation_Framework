@@ -3,14 +3,14 @@
 <suite name="Suite">
     <test name="journey-1" thread-count="5">
         <classes>
-            <class name="org.example.journey1" />
+            <class name="org.generalstore.journey1" />
         </classes>
     </test>
     <!--
     When you have a second test journey add it like below, and so on... :
     <test name="journey-2" thread-count="5">
         <classes>
-            <class name="org.example.journey2" />
+            <class name="org.generalstore.journey2" />
         </classes>
     </test>
     -->

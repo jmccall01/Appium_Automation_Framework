@@ -1,12 +1,15 @@
-package org.example;
+package org.generalstore;
 
-import io.appium.java_client.android.Activity;
-import org.example.pageObjects.Android.CartPage;
-import org.example.pageObjects.Android.ProductCatalogue;
+import org.generalstore.pageObjects.Android.CartPage;
+import org.generalstore.pageObjects.Android.ProductCatalogue;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
 public class journey1 extends Basis{
     /*
@@ -84,11 +87,11 @@ public class journey1 extends Basis{
      */
 
     @Test (dataProvider = "getData")
-    public void checkoutFramework(String name, String gender, String country){
+    public void checkoutFramework(HashMap<String, String> input){
         //First page - form page
-        formPage.setNameField(name);
-        formPage.setGender(gender);
-        formPage.setCountrySelection(country);
+        formPage.setNameField(input.get("name"));
+        formPage.setGender(input.get("gender"));
+        formPage.setCountrySelection(input.get("country"));
         //driver from submitForm return value
         ProductCatalogue productCatalogue = formPage.submitForm();
         //product catalogue page
@@ -108,9 +111,10 @@ public class journey1 extends Basis{
     }
     //If we want to use different data instead of 'Josh', 'Male', 'Argentina' this can be achieved by:
     @DataProvider
-    public Object[][] getData(){
+    public Object[][] getData() throws IOException {
         //Object so it accepts all data types
-        return new Object[][] {{"Josh","Male","Argentina"},{"Catrin","female","Belgium"}};
+        List<HashMap<String, String>> data = getJsonData("C:\\Users\\joshm\\IdeaProjects\\automation_framework\\src\\test\\java\\org\\generalstore\\testData\\eCommerce\\eCommerce.json");
+        return new Object[][] { {data.get(0)},{data.get(1)} };
 
     }
 }
