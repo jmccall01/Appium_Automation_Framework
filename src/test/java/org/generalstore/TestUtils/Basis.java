@@ -1,4 +1,4 @@
-package org.generalstore;
+package org.generalstore.TestUtils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -19,6 +19,9 @@ public class Basis extends AppiumUtils {
     public FormPage formPage;
     @BeforeClass
     public void ConfigureAppium() throws MalformedURLException {
+
+        service = startAppiumServer();
+
         UiAutomator2Options options = new UiAutomator2Options();
         options.setChromedriverExecutable("C:\\Users\\joshm\\Documents\\QA\\chromedriver.exe");
         options.setDeviceName("Test Device");
@@ -36,6 +39,6 @@ public class Basis extends AppiumUtils {
     @AfterClass
     public void tearDown(){
         driver.quit();
-        //service.stop();
+        service.stop();
     }
 }

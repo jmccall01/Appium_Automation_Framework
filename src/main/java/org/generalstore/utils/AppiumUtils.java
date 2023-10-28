@@ -3,6 +3,8 @@ package org.generalstore.utils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -37,5 +37,12 @@ public class AppiumUtils {
                 new TypeReference<List<HashMap<String, String>>>(){
                 });
         return data;
+    }
+
+    public AppiumDriverLocalService startAppiumServer(){
+        AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\joshm\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+                .withIPAddress("127.0.0.1").usingPort(4723).build();
+        service.start();
+        return service;
     }
 }

@@ -1,5 +1,6 @@
 package org.generalstore;
 
+import org.generalstore.TestUtils.Basis;
 import org.generalstore.pageObjects.Android.CartPage;
 import org.generalstore.pageObjects.Android.ProductCatalogue;
 import org.testng.Assert;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class journey1 extends Basis{
+public class journey1 extends Basis {
     /*
      * Here are the E2E journey tests as I was learning Appium
      * The final piece using an actual automation framework is at the bottom of the page - called 'checkoutFramework'
