@@ -12,7 +12,7 @@ public void reportExample(){
 
 	extet = new ExtentReports;
 	extent.attachReporter(reporter);
-	extent.setSystemInfo("Tester", "Josh McCall")
+	extent.setSystemInfo("Tester", "Josh McCall");
 }
 
 //Then, in the actual @Test you can add:

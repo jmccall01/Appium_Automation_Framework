@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import org.generalstore.TestUtils.Basis;
 import org.generalstore.pageObjects.Android.CartPage;
 import org.generalstore.pageObjects.Android.ProductCatalogue;
+import org.generalstore.utils.ExtentReporter;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -12,6 +13,8 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+
+import static org.generalstore.utils.ExtentReporter.extentReport;
 
 public class journey1 extends Basis {
     /*

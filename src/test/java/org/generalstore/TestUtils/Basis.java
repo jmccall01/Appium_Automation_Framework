@@ -39,19 +39,6 @@ public class Basis extends AppiumUtils {
         formPage = new FormPage(driver);
     }
 
-    @BeforeClass
-    public ExtentReports extentReport(){
-        String path = System.getProperty("user.dir") + "\\ExtentReports\\index.html";
-        ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-        reporter.config().setReportName("E2E Automation Results");
-        reporter.config().setDocumentTitle("Test Results");
-
-        ExtentReports extent = new ExtentReports();
-        extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "Josh McCall");
-        return extent;
-    }
-
     public Double getFormattedAmount(String amount){
         Double price = Double.parseDouble(amount.substring(1));
         return price;
