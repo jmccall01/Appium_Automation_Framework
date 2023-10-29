@@ -1,5 +1,6 @@
 package org.generalstore;
 
+import com.aventstack.extentreports.ExtentReports;
 import org.generalstore.TestUtils.Basis;
 import org.generalstore.pageObjects.Android.CartPage;
 import org.generalstore.pageObjects.Android.ProductCatalogue;
@@ -89,6 +90,9 @@ public class journey1 extends Basis {
 
     @Test (dataProvider = "getData")
     public void checkoutFramework(HashMap<String, String> input){
+        //extent report
+        ExtentReports extent = extentReport();
+        extent.createTest("Checkout Framework");
         //First page - form page
         formPage.setNameField(input.get("name"));
         formPage.setGender(input.get("gender"));
@@ -105,6 +109,8 @@ public class journey1 extends Basis {
         double totalPrice = cartPage.getTotalPrice();
         Assert.assertEquals(totalSum, totalPrice);
         cartPage.checkout();
+        //test.fail("Results do not match");    -Example of a failure (manually here)
+        extent.flush();
     }
     @BeforeMethod
     public void preSetup(){

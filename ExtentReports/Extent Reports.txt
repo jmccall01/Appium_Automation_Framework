@@ -1,0 +1,22 @@
+Extent Reports:
+
+Need 'ExtentReports', 'TestNG' & 'Selenium' dependencies from maven in pom.xml
+Template:
+
+@BeforeClass
+public void reportExample(){
+	String path = System.getProperty("user.dir") + "//location on index.html for report";
+	ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+	reporter.config().setReportName("E2E Automation Results");
+	reporter.config().setDocumentTitle("Test Results");
+
+	extet = new ExtentReports;
+	extent.attachReporter(reporter);
+	extent.setSystemInfo("Tester", "Josh McCall")
+}
+
+//Then, in the actual @Test you can add:
+extent.createTest("Initial Demo");
+//To end:
+extent.flush();
+
