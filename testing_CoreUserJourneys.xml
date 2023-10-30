@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+This xml file will ONLY run tests with the CoreUserJourney 'groups' tag
+Good for smoke tests, regression, functional... test packs
+-->
+<suite name="Suite">
+    <groups>
+        <run>
+            <include name="CoreUserJourneys" />
+        </run>
+    </groups>
+    <listeners>
+        <listener class-name="org.generalstore.utils.Listeners"></listener>
+    </listeners>
+    <test name="journey-1" thread-count="5">
+        <classes>
+            <class name="org.generalstore.journey1" />
+        </classes>
+    </test>
+    <!--
+    When you have a second test journey add it like below, and so on... :
+    <test name="journey-2" thread-count="5">
+        <classes>
+            <class name="org.generalstore.journey2" />
+        </classes>
+    </test>
+    -->
+</suite>
+
+<!-- You can then run this file as a suite -->

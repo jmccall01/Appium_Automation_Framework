@@ -20,7 +20,8 @@ public class Basis extends AppiumUtils {
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
     public FormPage formPage;
-    @BeforeClass
+    //add alwaysRun = true to before class so it runs for every group
+    @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
 
         Properties prop = new Properties();

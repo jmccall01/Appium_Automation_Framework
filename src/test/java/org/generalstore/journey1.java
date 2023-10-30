@@ -91,7 +91,7 @@ public class journey1 extends Basis {
 
      */
 
-    @Test (dataProvider = "getData")
+    @Test (dataProvider = "getData", groups = {"CoreUserJourneys"})
     public void checkoutFramework(HashMap<String, String> input){
         //extent report
         ExtentReports extent = extentReport();
@@ -115,7 +115,7 @@ public class journey1 extends Basis {
         //test.fail("Results do not match");    -Example of a failure (manually here)
         extent.flush();
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preSetup(){
         formPage.setActivity();
     }
