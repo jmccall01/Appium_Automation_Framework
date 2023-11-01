@@ -74,8 +74,32 @@
       <artifactId>extentreports</artifactId>
       <version>5.1.1</version>
     </dependency>
-
-
-
   </dependencies>
+
+  <!--
+  To run these profiles from terminal:
+  mvn test -P{id}
+  eg. mvn test -PCoreJourney
+  -->
+  <profiles>
+    <profile>
+      <id>CoreJourney</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.2.1</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testNGSuites/testing_CoreUserJourneys.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
 </project>

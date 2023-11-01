@@ -25,9 +25,11 @@ public class Basis extends AppiumUtils {
     public void ConfigureAppium() throws IOException {
 
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("C:\\Users\\joshm\\IdeaProjects\\automation_framework\\src\\main\\java\\resources\\data.properties");
+        //Check if maven is receiving an ip address from terminal:
+        // Command: mvn test -PRegression -DipAddress={ip}
+        FileInputStream fis = new FileInputStream("C:\\Users\\joshm\\IdeaProjects\\automation_framework\\src\\main\\java\\resources\\data.properties") ;
         prop.load(fis);
-        String ipAddress = prop.getProperty("ipAddress");
+        String ipAddress = System.getProperty("ipAddress")!=null ? System.getProperty("ipAddress") : prop.getProperty("ipAddress");
         String port = prop.getProperty("port");
         service = startAppiumServer(ipAddress, Integer.parseInt(port));
 

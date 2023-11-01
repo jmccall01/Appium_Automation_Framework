@@ -1,0 +1,9 @@
+org\generalstore\utils\iOSActions.class
+org\generalstore\pageObjects\Android\FormPage.class
+org\generalstore\utils\AndroidActions.class
+org\generalstore\utils\AppiumUtils.class
+org\generalstore\utils\Listeners.class
+org\generalstore\pageObjects\Android\ProductCatalogue.class
+org\generalstore\utils\AppiumUtils$1.class
+org\generalstore\utils\ExtentReporter.class
+org\generalstore\pageObjects\Android\CartPage.class
